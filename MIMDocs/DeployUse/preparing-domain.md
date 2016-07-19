@@ -50,7 +50,7 @@ All the components of your MIM deployment need their own identities in the domai
 
     ```
     import-module activedirectory
-    $sp = ConvertTo-SecureString "Pass@word1" –asplaintext –force
+    $sp = Read-Host "Enter Password" -AsSecureString
     New-ADUser –SamAccountName MIMMA –name MIMMA
     Set-ADAccountPassword –identity MIMMA –NewPassword $sp
     Set-ADUser –identity MIMMA –Enabled 1 –PasswordNeverExpires 1
